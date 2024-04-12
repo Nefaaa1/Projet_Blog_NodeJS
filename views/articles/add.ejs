@@ -1,0 +1,38 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">Ajouter un article</div>
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="title">Titre</label>
+                            <input type="text" class="form-control" name="title" id="nom" placeholder="Entrez votre titre" >
+                        </div>
+                        <div class="mb-3">
+                            <label for="categorie">Catégorie</label>
+                            <select class="form-select" name="id_categorie" id="categorie">
+                                <% for(const cat of categories){ %>
+                                    <option value="<%= cat.id %>" ><%= cat.title %></option>
+                                <% } %>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="content">Contenu</label>
+                            <textarea class="form-control" name="content" id="content" rows="3" placeholder="Contenu de l'article" ></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="picture">Image</label>
+                            <input type="file" class="form-control" name="picture" id="picture">
+                        </div>
+                        <div class="mb-3">
+                            <label for="alt">Image "alt"</label>
+                            <input type="text" class="form-control" name="picture_alt" id="alt" placeholder="Entrez une alternative à l'image">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Ajouter</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

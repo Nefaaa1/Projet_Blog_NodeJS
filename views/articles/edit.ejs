@@ -1,0 +1,45 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">Modifier mon article</div>
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="title">Titre</label>
+                            <input type="text" class="form-control" name="title" id="nom" placeholder="Entrez votre titre" value="<%= articles.title %>">
+                        </div>
+                        <div class="mb-3">
+                            <label for="categorie">Catégorie</label>
+                            <select class="form-select" name="id_categorie" id="categorie">
+                                <% for(const cat of categories){ %>
+                                    <option value="<%= cat.id %>" <%= (cat.id == articles.id_categorie ? "selected" : "") %>><%= cat.title %></option>
+                                <% } %>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="content">Contenu</label>
+                            <textarea class="form-control" name="content" id="content" rows="3" placeholder="Contenu de l'article" ><%= articles.content %></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="picture">Image</label>
+                            <input type="file" class="form-control" name="picture" id="picture">
+                            <div class="alert alert-info mt-2 p-2" role="alert">
+                                <% if(articles.picture){ %>
+                                    Fichier actuel : <%= articles.picture %>
+                                <% }else{ %>
+                                    Pas de fichier enregistrer
+                                <% } %>
+                                </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="alt">Image "alt"</label>
+                            <input type="text" class="form-control" name="picture_alt" id="alt" placeholder="Entrez une alternative à l'image" value="<%= articles.picture_alt %>">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Modifier</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
